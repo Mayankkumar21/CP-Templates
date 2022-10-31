@@ -6,7 +6,7 @@ typedef long long ll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 #define MOD 1000000007
-bool isPrime(int n)
+bool isPrimeNum(int n)
 {
     if (n <= 1)
         return false;
@@ -31,8 +31,26 @@ bool cmp(const pair<ll,ll> &a,
 {
     return (a.first < b.first);
 }
+// Generate prime number <lim
+const int MAX_PR = 5'000'000;
+bitset<MAX_PR> isprime;
+vi eratosthenesSieve(int lim) {
+    isprime.set(); isprime[0] = isprime[1] = 0;
+    for (int i = 4; i < lim; i += 2) isprime[i] = 0;
+    for (int i = 3; i*i < lim; i += 2) if (isprime[i])
+            for (int j = i*i; j < lim; j += i*2) isprime[j] = 0;
+    vi pr;
+    rep(i,2,lim) if (isprime[i]) pr.push_back(i);
+    return pr;
+}
+
 void solve(){
-   
+    int n;
+    cin>>n;
+    vi v= eratosthenesSieve(20);
+    for(auto i:v)cout<<i<<" ";
+    if(v[n]==1)cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
 
 
      }
@@ -46,8 +64,8 @@ int main() {
     freopen("Error.txt","w",stderr);
 #endif
     auto start1=chrono::high_resolution_clock::now();
-    int t;
-    cin>>t;
+    int t=1;
+//    cin>>t;
     while(t--) {
         solve();
     }
