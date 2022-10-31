@@ -6,6 +6,8 @@ typedef long long ll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 #define MOD 1000000007
+
+
 bool isPrimeNum(int n)
 {
     if (n <= 1)
@@ -19,6 +21,8 @@ bool isPrimeNum(int n)
             return false;
     return true;
 }
+
+
 bool isPowerOfTwo(int n)
 {
     if (n == 0)
@@ -26,11 +30,8 @@ bool isPowerOfTwo(int n)
 
     return (ceil(log2(n)) == floor(log2(n)));
 }
-bool cmp(const pair<ll,ll> &a,
-               const pair<ll,ll> &b)
-{
-    return (a.first < b.first);
-}
+ 
+
 // Generate prime number <lim
 const int MAX_PR = 5'000'000;
 bitset<MAX_PR> isprime;
@@ -45,12 +46,7 @@ vi eratosthenesSieve(int lim) {
 }
 
 void solve(){
-    int n;
-    cin>>n;
-    vi v= eratosthenesSieve(20);
-    for(auto i:v)cout<<i<<" ";
-    if(v[n]==1)cout<<"YES"<<endl;
-    else cout<<"NO"<<endl;
+   
 
 
      }
